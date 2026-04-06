@@ -1,15 +1,19 @@
-# API needs AWS credentials for DynamoDB.
+# API needs AWS credentials for DynamoDB (inside the `api` container).
 #
-# Docker: run from THIS directory (headless-cms) so ./aws-credentials.env is found:
-#   cp aws-credentials.env.example aws-credentials.env
-#   # edit aws-credentials.env — no quotes, no spaces around =
-#   docker compose up api
+# Pick at least ONE:
 #
-# Or point Compose at another file: AWS_ENV_FILE=/absolute/path/keys.env docker compose up api
+# 1) Project `.env` (recommended): cp .env.example .env  → set AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY
+#    Compose loads `.env` into the api service automatically (env_file below).
 #
-# The api service mounts host ~/.aws so `aws configure` credentials are visible in the container.
+# 2) `aws-credentials.env`: cp aws-credentials.env.example aws-credentials.env → fill in keys
 #
-# On EC2/ECS/Lambda: attach an IAM role with DynamoDB access to the task/instance (no .env file needed).
+# 3) Host `aws configure`: credentials in ~/.aws — we mount that dir into the container.
+#    If you use `sudo docker compose`, HOME is often /root and the mount is EMPTY. Fix with:
+#      sudo -E docker compose up api
+#    or:
+#      HOST_AWS_CREDENTIALS_DIR=/home/YOUR_LINUX_USER/.aws docker compose up api
+#
+# On EC2/ECS/Lambda: use an IAM role on the task/instance; you can comment out the ~/.aws volume.
 services:
   api:
     build:
@@ -20,11 +24,13 @@ services:
     env_file:
       - path: ${AWS_ENV_FILE:-./aws-credentials.env}
         required: false
+      - path: .env
+        required: false
     volumes:
       - ./backend/app:/app/app
       - ./backend/seeds:/app/seeds:ro
       - ./backend/requirements.txt:/app/requirements.txt:ro
-      - ~/.aws:/root/.aws:ro
+      - ${HOST_AWS_CREDENTIALS_DIR:-$HOME/.aws}:/root/.aws:ro
     environment:
       - AWS_REGION=${AWS_REGION:-us-east-1}
       - DYNAMODB_TABLE=${DYNAMODB_TABLE:-infraguys-headless-cms}
