@@ -61,8 +61,15 @@ def health():
         out["dynamo_error"] = code
         return out
     except BotoCoreError as e:
+        msg = str(e)
         out["dynamo_ok"] = False
-        out["dynamo_error"] = str(e)
+        out["dynamo_error"] = msg
+        if "credentials" in msg.lower():
+            out["dynamo_hint"] = (
+                "Provide AWS credentials: set AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY "
+                "(and AWS_SESSION_TOKEN if using temp keys), use an env_file in docker-compose, "
+                "~/.aws on the host, or run on AWS with an IAM role that can access DynamoDB."
+            )
         return out
 
     out["dynamo_ok"] = True

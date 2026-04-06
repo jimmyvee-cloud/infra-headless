@@ -1,3 +1,7 @@
+# API needs AWS credentials for DynamoDB. Pick one:
+#   - env file: AWS_ENV_FILE=./aws-credentials.env docker compose up (file holds AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, optional AWS_SESSION_TOKEN)
+#   - exported in your shell before compose (Compose passes them through if listed below)
+#   - on EC2/ECS/Lambda: omit keys and use an instance/task role with dynamodb:* on the table
 services:
   api:
     build:
@@ -6,7 +10,7 @@ services:
     ports:
       - "8800:8000"
     env_file:
-      - path: ${AWS_ENV_FILE:-/home/h3x/Downloads/h3x_accessKeys.env}
+      - path: ${AWS_ENV_FILE:-./aws-credentials.env}
         required: false
     volumes:
       - ./backend/app:/app/app
