@@ -1,0 +1,57 @@
+{
+  "pk": {
+    "S": "TENANT#infra_guys_website_main"
+  },
+  "sk": {
+    "S": "PAGE#01JG9DEPLOY001"
+  },
+  "entity": {
+    "S": "page_meta"
+  },
+  "page_id": {
+    "S": "01JG9DEPLOY001"
+  },
+  "tenant_id": {
+    "S": "infra_guys_website_main"
+  },
+  "slug": {
+    "S": "services/deployment.html"
+  },
+  "template": {
+    "S": "deployment_services_marketing"
+  },
+  "status": {
+    "S": "published"
+  },
+  "published_at": {
+    "S": "2026-04-06T12:02:00.000Z"
+  },
+  "locales": {
+    "L": [
+      {
+        "S": "en"
+      },
+      {
+        "S": "th"
+      },
+      {
+        "S": "ar"
+      }
+    ]
+  },
+  "version": {
+    "N": "1"
+  },
+  "G1PK": {
+    "S": "TENANT#infra_guys_website_main#services/deployment.html"
+  },
+  "G1SK": {
+    "S": "PAGE#01JG9DEPLOY001"
+  },
+  "G2PK": {
+    "S": "TENANT#infra_guys_website_main#published"
+  },
+  "G2SK": {
+    "S": "2026-04-06T12:02:00.000Z#01JG9DEPLOY001"
+  }
+}

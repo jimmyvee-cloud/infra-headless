@@ -1,0 +1,29 @@
+{
+  "pk": {
+    "S": "TENANT#infra_guys_website_main"
+  },
+  "sk": {
+    "S": "META"
+  },
+  "entity": {
+    "S": "tenant_meta"
+  },
+  "tenant_id": {
+    "S": "infra_guys_website_main"
+  },
+  "subdomain": {
+    "S": "infra_guys_website_main"
+  },
+  "plan": {
+    "S": "starter"
+  },
+  "status": {
+    "S": "active"
+  },
+  "G3PK": {
+    "S": "PLATFORM#active"
+  },
+  "G3SK": {
+    "S": "2026-04-01T00:00:00.000Z#infra_guys_website_main"
+  }
+}

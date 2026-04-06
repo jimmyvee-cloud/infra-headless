@@ -1,0 +1,642 @@
+{
+  "pk": {
+    "S": "TENANT#infra_guys_website_main"
+  },
+  "sk": {
+    "S": "PAGE#01JG9HOME0001#LANG#en"
+  },
+  "entity": {
+    "S": "page_translation"
+  },
+  "page_id": {
+    "S": "01JG9HOME0001"
+  },
+  "tenant_id": {
+    "S": "infra_guys_website_main"
+  },
+  "locale": {
+    "S": "en"
+  },
+  "slug": {
+    "S": "index"
+  },
+  "version": {
+    "N": "1"
+  },
+  "blocks": {
+    "L": [
+      {
+        "M": {
+          "id": {
+            "S": "home_nav"
+          },
+          "type": {
+            "S": "infra_home_nav"
+          },
+          "order": {
+            "N": "0"
+          },
+          "props": {
+            "M": {}
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_hero"
+          },
+          "type": {
+            "S": "infra_home_hero"
+          },
+          "order": {
+            "N": "1"
+          },
+          "props": {
+            "M": {
+              "image_src": {
+                "S": "/dev-services-assets/infra-guys-hero.png"
+              },
+              "image_alt": {
+                "S": "Infra Guys \u2014 cloud infrastructure and automation"
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_services_overview"
+          },
+          "type": {
+            "S": "infra_home_services_overview"
+          },
+          "order": {
+            "N": "2"
+          },
+          "props": {
+            "M": {
+              "pillars": {
+                "L": [
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "build_section_title"
+                      },
+                      "leadKey": {
+                        "S": "build_section_lead"
+                      },
+                      "titleHref": {
+                        "S": "/services/dev-services.html"
+                      },
+                      "itemKeys": {
+                        "L": [
+                          {
+                            "S": "build_i1"
+                          },
+                          {
+                            "S": "build_i2"
+                          },
+                          {
+                            "S": "build_i3"
+                          },
+                          {
+                            "S": "build_i4"
+                          },
+                          {
+                            "S": "build_i5"
+                          },
+                          {
+                            "S": "build_i6"
+                          },
+                          {
+                            "S": "build_i7"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "deploy_section_title"
+                      },
+                      "leadKey": {
+                        "S": "deploy_section_lead"
+                      },
+                      "titleHref": {
+                        "S": "/services/deployment.html"
+                      },
+                      "itemKeys": {
+                        "L": [
+                          {
+                            "S": "deploy_i1"
+                          },
+                          {
+                            "S": "deploy_i2"
+                          },
+                          {
+                            "S": "deploy_i3"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "auto_section_title"
+                      },
+                      "leadKey": {
+                        "S": "auto_section_lead"
+                      },
+                      "itemKeys": {
+                        "L": [
+                          {
+                            "S": "auto_i1"
+                          },
+                          {
+                            "S": "auto_i2"
+                          },
+                          {
+                            "S": "auto_i3"
+                          },
+                          {
+                            "S": "auto_i4"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_spotlight"
+          },
+          "type": {
+            "S": "infra_home_spotlight"
+          },
+          "order": {
+            "N": "3"
+          },
+          "props": {
+            "M": {
+              "cards": {
+                "L": [
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "diff_1_title"
+                      },
+                      "bodyKey": {
+                        "S": "diff_1_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "diff_2_title"
+                      },
+                      "bodyKey": {
+                        "S": "diff_2_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "titleKey": {
+                        "S": "diff_3_title"
+                      },
+                      "bodyKey": {
+                        "S": "diff_3_body"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_portfolio"
+          },
+          "type": {
+            "S": "infra_home_portfolio"
+          },
+          "order": {
+            "N": "4"
+          },
+          "props": {
+            "M": {
+              "projects": {
+                "L": [
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p1"
+                      },
+                      "category": {
+                        "S": "aws"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/tuxmerch.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/tuxmerch-case-study.html"
+                      },
+                      "badge": {
+                        "S": "AWS / Cloud"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p1_title"
+                      },
+                      "descKey": {
+                        "S": "p1_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "ECS Fargate"
+                          },
+                          {
+                            "S": "RDS Aurora"
+                          },
+                          {
+                            "S": "Terraform"
+                          },
+                          {
+                            "S": "Laravel"
+                          },
+                          {
+                            "S": "Docker"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p2"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/men-tool.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/men-tool-case-study.html"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p2_title"
+                      },
+                      "descKey": {
+                        "S": "p2_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "AWS Cognito"
+                          },
+                          {
+                            "S": "AWS Amplify"
+                          },
+                          {
+                            "S": "DynamoDB"
+                          },
+                          {
+                            "S": "React Native"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p3"
+                      },
+                      "category": {
+                        "S": "web"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/vivaos.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/vivaos-case-study.html"
+                      },
+                      "badge": {
+                        "S": "Web App"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p3_title"
+                      },
+                      "descKey": {
+                        "S": "p3_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "Next.js"
+                          },
+                          {
+                            "S": "Node.js"
+                          },
+                          {
+                            "S": "PostgreSQL"
+                          },
+                          {
+                            "S": "ECS"
+                          },
+                          {
+                            "S": "Stripe"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p4"
+                      },
+                      "category": {
+                        "S": "db"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/capsulecrm.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "badge": {
+                        "S": "CRM / ERP"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p4_title"
+                      },
+                      "descKey": {
+                        "S": "p4_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "Python / FastAPI"
+                          },
+                          {
+                            "S": "RDS PostgreSQL"
+                          },
+                          {
+                            "S": "S3"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p5"
+                      },
+                      "category": {
+                        "S": "aws"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/7flags.png"
+                      },
+                      "imageAlt": {
+                        "S": "7flags.io screenshot"
+                      },
+                      "href": {
+                        "S": "/case-studies/7flags-case-study.html"
+                      },
+                      "hrefTargetBlank": {
+                        "BOOL": true
+                      },
+                      "badge": {
+                        "S": "AWS / Cloud"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p5_title"
+                      },
+                      "descKey": {
+                        "S": "p5_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "Lambda"
+                          },
+                          {
+                            "S": "API Gateway"
+                          },
+                          {
+                            "S": "SQS"
+                          },
+                          {
+                            "S": "CDK"
+                          },
+                          {
+                            "S": "Python"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p6"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/cartdash.png"
+                      },
+                      "imageAlt": {
+                        "S": "CartDash"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p6_title"
+                      },
+                      "descKey": {
+                        "S": "p6_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React Native"
+                          },
+                          {
+                            "S": "PWA"
+                          },
+                          {
+                            "S": "AWS Amplify"
+                          },
+                          {
+                            "S": "Cognito"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p7"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "https://i.postimg.cc/C1tYQ0L0/Screenshot-from-2026-03-26-13-01-31.png"
+                      },
+                      "imageAlt": {
+                        "S": "Invixo screenshot"
+                      },
+                      "href": {
+                        "S": "/case-studies/invixo-case-study.html"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p7_title"
+                      },
+                      "descKey": {
+                        "S": "p7_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "FastAPI"
+                          },
+                          {
+                            "S": "DynamoDB"
+                          },
+                          {
+                            "S": "PWA"
+                          },
+                          {
+                            "S": "Docker"
+                          },
+                          {
+                            "S": "AWS"
+                          },
+                          {
+                            "S": "JWT"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_cta"
+          },
+          "type": {
+            "S": "infra_home_cta"
+          },
+          "order": {
+            "N": "5"
+          },
+          "props": {
+            "M": {
+              "mailto": {
+                "S": "hello@infra-guys.com"
+              },
+              "secondary_url": {
+                "S": "https://infra-guys.com"
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "home_footer"
+          },
+          "type": {
+            "S": "infra_home_footer"
+          },
+          "order": {
+            "N": "6"
+          },
+          "props": {
+            "M": {
+              "mailto": {
+                "S": "hello@infra-guys.com"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

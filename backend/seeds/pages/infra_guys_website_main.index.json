@@ -1,0 +1,17 @@
+{
+  "tenant_id": "infra_guys_website_main",
+  "slug": "index",
+  "template": "infra_home_marketing",
+  "status": "published",
+  "published_at": "2026-04-06T00:00:00.000Z",
+  "note": "Company overview — services map (Build / Deploy / Automate), spotlight, portfolio; see frontend/src/data/homePageDelivery.ts",
+  "block_types_in_order": [
+    "infra_home_nav",
+    "infra_home_hero",
+    "infra_home_services_overview",
+    "infra_home_spotlight",
+    "infra_home_portfolio",
+    "infra_home_cta",
+    "infra_home_footer"
+  ]
+}

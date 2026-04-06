@@ -1,0 +1,17 @@
+{
+  "pk": {
+    "S": "TENANT#infra_guys_website_main"
+  },
+  "sk": {
+    "S": "CONFIG"
+  },
+  "entity": {
+    "S": "tenant_config"
+  },
+  "default_locale": {
+    "S": "en"
+  },
+  "timezone": {
+    "S": "UTC"
+  }
+}

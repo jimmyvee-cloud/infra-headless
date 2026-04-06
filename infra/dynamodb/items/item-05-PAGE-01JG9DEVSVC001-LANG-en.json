@@ -1,0 +1,763 @@
+{
+  "pk": {
+    "S": "TENANT#infra_guys_website_main"
+  },
+  "sk": {
+    "S": "PAGE#01JG9DEVSVC001#LANG#en"
+  },
+  "entity": {
+    "S": "page_translation"
+  },
+  "page_id": {
+    "S": "01JG9DEVSVC001"
+  },
+  "tenant_id": {
+    "S": "infra_guys_website_main"
+  },
+  "locale": {
+    "S": "en"
+  },
+  "slug": {
+    "S": "services/dev-services.html"
+  },
+  "version": {
+    "N": "1"
+  },
+  "blocks": {
+    "L": [
+      {
+        "M": {
+          "id": {
+            "S": "blk_nav"
+          },
+          "type": {
+            "S": "dev_services_nav"
+          },
+          "order": {
+            "N": "0"
+          },
+          "props": {
+            "M": {}
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_hero"
+          },
+          "type": {
+            "S": "dev_services_hero"
+          },
+          "order": {
+            "N": "1"
+          },
+          "props": {
+            "M": {
+              "image_src": {
+                "S": "/dev-services-assets/services.png"
+              },
+              "image_alt": {
+                "S": "The InfraGuys"
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_offerings"
+          },
+          "type": {
+            "S": "dev_services_offerings"
+          },
+          "order": {
+            "N": "2"
+          },
+          "props": {
+            "M": {
+              "cards": {
+                "L": [
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-cloud-fill"
+                      },
+                      "tags": {
+                        "L": [
+                          {
+                            "S": "Lambda / ECS"
+                          },
+                          {
+                            "S": "Terraform / CDK"
+                          },
+                          {
+                            "S": "API Gateway"
+                          },
+                          {
+                            "S": "CI/CD"
+                          }
+                        ]
+                      },
+                      "titleKey": {
+                        "S": "svc1_title"
+                      },
+                      "descKey": {
+                        "S": "svc1_desc"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-phone-fill"
+                      },
+                      "tags": {
+                        "L": [
+                          {
+                            "S": "React Native"
+                          },
+                          {
+                            "S": "PWA"
+                          },
+                          {
+                            "S": "iOS / Android"
+                          },
+                          {
+                            "S": "Expo"
+                          }
+                        ]
+                      },
+                      "titleKey": {
+                        "S": "svc2_title"
+                      },
+                      "descKey": {
+                        "S": "svc2_desc"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-code-slash"
+                      },
+                      "tags": {
+                        "L": [
+                          {
+                            "S": "React / Next.js"
+                          },
+                          {
+                            "S": "Node / Python"
+                          },
+                          {
+                            "S": "REST / GraphQL"
+                          },
+                          {
+                            "S": "SaaS"
+                          }
+                        ]
+                      },
+                      "titleKey": {
+                        "S": "svc3_title"
+                      },
+                      "descKey": {
+                        "S": "svc3_desc"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-database-fill"
+                      },
+                      "tags": {
+                        "L": [
+                          {
+                            "S": "PostgreSQL / Aurora"
+                          },
+                          {
+                            "S": "Custom CRM"
+                          },
+                          {
+                            "S": "ERP Integration"
+                          },
+                          {
+                            "S": "Admin Panels"
+                          }
+                        ]
+                      },
+                      "titleKey": {
+                        "S": "svc4_title"
+                      },
+                      "descKey": {
+                        "S": "svc4_desc"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_why"
+          },
+          "type": {
+            "S": "dev_services_why"
+          },
+          "order": {
+            "N": "3"
+          },
+          "props": {
+            "M": {
+              "cards": {
+                "L": [
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-shield-check-fill"
+                      },
+                      "titleKey": {
+                        "S": "why1_title"
+                      },
+                      "bodyKey": {
+                        "S": "why1_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-box-seam-fill"
+                      },
+                      "titleKey": {
+                        "S": "why2_title"
+                      },
+                      "bodyKey": {
+                        "S": "why2_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-diagram-3-fill"
+                      },
+                      "titleKey": {
+                        "S": "why3_title"
+                      },
+                      "bodyKey": {
+                        "S": "why3_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-calendar2-check-fill"
+                      },
+                      "titleKey": {
+                        "S": "why4_title"
+                      },
+                      "bodyKey": {
+                        "S": "why4_body"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_process"
+          },
+          "type": {
+            "S": "dev_services_process"
+          },
+          "order": {
+            "N": "4"
+          },
+          "props": {
+            "M": {
+              "steps": {
+                "L": [
+                  {
+                    "M": {
+                      "num": {
+                        "S": "01"
+                      },
+                      "titleKey": {
+                        "S": "step1_title"
+                      },
+                      "bodyKey": {
+                        "S": "step1_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "02"
+                      },
+                      "titleKey": {
+                        "S": "step2_title"
+                      },
+                      "bodyKey": {
+                        "S": "step2_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "03"
+                      },
+                      "titleKey": {
+                        "S": "step3_title"
+                      },
+                      "bodyKey": {
+                        "S": "step3_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "04"
+                      },
+                      "titleKey": {
+                        "S": "step4_title"
+                      },
+                      "bodyKey": {
+                        "S": "step4_body"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_portfolio"
+          },
+          "type": {
+            "S": "dev_services_portfolio"
+          },
+          "order": {
+            "N": "5"
+          },
+          "props": {
+            "M": {
+              "projects": {
+                "L": [
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p1"
+                      },
+                      "category": {
+                        "S": "aws"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/tuxmerch.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/tuxmerch-case-study.html"
+                      },
+                      "badge": {
+                        "S": "AWS / Cloud"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p1_title"
+                      },
+                      "descKey": {
+                        "S": "p1_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "ECS Fargate"
+                          },
+                          {
+                            "S": "RDS Aurora"
+                          },
+                          {
+                            "S": "Terraform"
+                          },
+                          {
+                            "S": "Laravel"
+                          },
+                          {
+                            "S": "Docker"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p2"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/men-tool.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/men-tool-case-study.html"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p2_title"
+                      },
+                      "descKey": {
+                        "S": "p2_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "AWS Cognito"
+                          },
+                          {
+                            "S": "AWS Amplify"
+                          },
+                          {
+                            "S": "DynamoDB"
+                          },
+                          {
+                            "S": "React Native"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p3"
+                      },
+                      "category": {
+                        "S": "web"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/vivaos.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "href": {
+                        "S": "/case-studies/vivaos-case-study.html"
+                      },
+                      "badge": {
+                        "S": "Web App"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p3_title"
+                      },
+                      "descKey": {
+                        "S": "p3_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "Next.js"
+                          },
+                          {
+                            "S": "Node.js"
+                          },
+                          {
+                            "S": "PostgreSQL"
+                          },
+                          {
+                            "S": "ECS"
+                          },
+                          {
+                            "S": "Stripe"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p4"
+                      },
+                      "category": {
+                        "S": "db"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/capsulecrm.png"
+                      },
+                      "imageAlt": {
+                        "S": "The InfraGuys"
+                      },
+                      "badge": {
+                        "S": "CRM / ERP"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p4_title"
+                      },
+                      "descKey": {
+                        "S": "p4_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "Python / FastAPI"
+                          },
+                          {
+                            "S": "RDS PostgreSQL"
+                          },
+                          {
+                            "S": "S3"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p5"
+                      },
+                      "category": {
+                        "S": "aws"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/7flags.png"
+                      },
+                      "imageAlt": {
+                        "S": "7flags.io screenshot"
+                      },
+                      "href": {
+                        "S": "/case-studies/7flags-case-study.html"
+                      },
+                      "hrefTargetBlank": {
+                        "BOOL": true
+                      },
+                      "badge": {
+                        "S": "AWS / Cloud"
+                      },
+                      "status": {
+                        "S": "live"
+                      },
+                      "titleKey": {
+                        "S": "p5_title"
+                      },
+                      "descKey": {
+                        "S": "p5_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "Lambda"
+                          },
+                          {
+                            "S": "API Gateway"
+                          },
+                          {
+                            "S": "SQS"
+                          },
+                          {
+                            "S": "CDK"
+                          },
+                          {
+                            "S": "Python"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p6"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "/dev-services-assets/cartdash.png"
+                      },
+                      "imageAlt": {
+                        "S": "CartDash"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p6_title"
+                      },
+                      "descKey": {
+                        "S": "p6_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React Native"
+                          },
+                          {
+                            "S": "PWA"
+                          },
+                          {
+                            "S": "AWS Amplify"
+                          },
+                          {
+                            "S": "Cognito"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "id": {
+                        "S": "p7"
+                      },
+                      "category": {
+                        "S": "pwa"
+                      },
+                      "image": {
+                        "S": "https://i.postimg.cc/C1tYQ0L0/Screenshot-from-2026-03-26-13-01-31.png"
+                      },
+                      "imageAlt": {
+                        "S": "Invixo screenshot"
+                      },
+                      "href": {
+                        "S": "/case-studies/invixo-case-study.html"
+                      },
+                      "badge": {
+                        "S": "PWA & Apps"
+                      },
+                      "status": {
+                        "S": "wip"
+                      },
+                      "titleKey": {
+                        "S": "p7_title"
+                      },
+                      "descKey": {
+                        "S": "p7_desc"
+                      },
+                      "stack": {
+                        "L": [
+                          {
+                            "S": "React"
+                          },
+                          {
+                            "S": "FastAPI"
+                          },
+                          {
+                            "S": "DynamoDB"
+                          },
+                          {
+                            "S": "PWA"
+                          },
+                          {
+                            "S": "Docker"
+                          },
+                          {
+                            "S": "AWS"
+                          },
+                          {
+                            "S": "JWT"
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_cta"
+          },
+          "type": {
+            "S": "dev_services_cta"
+          },
+          "order": {
+            "N": "6"
+          },
+          "props": {
+            "M": {
+              "mailto": {
+                "S": "hello@infra-guys.com"
+              },
+              "home_url": {
+                "S": "https://infra-guys.com"
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_footer"
+          },
+          "type": {
+            "S": "dev_services_footer"
+          },
+          "order": {
+            "N": "7"
+          },
+          "props": {
+            "M": {
+              "mailto": {
+                "S": "hello@infra-guys.com"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

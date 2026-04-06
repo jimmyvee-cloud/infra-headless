@@ -1,0 +1,17 @@
+[
+  {
+    "pk": "TENANT#infra_guys_website_main",
+    "sk": "META",
+    "subdomain": "infra_guys_website_main",
+    "plan": "starter",
+    "status": "active",
+    "locales": ["en"],
+    "page_limit": 50
+  },
+  {
+    "pk": "TENANT#infra_guys_website_main",
+    "sk": "CONFIG",
+    "default_locale": "en",
+    "timezone": "UTC"
+  }
+]

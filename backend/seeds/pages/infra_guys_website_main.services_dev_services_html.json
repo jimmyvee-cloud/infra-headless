@@ -1,0 +1,18 @@
+{
+  "tenant_id": "infra_guys_website_main",
+  "slug": "services/dev-services.html",
+  "template": "dev_services_marketing",
+  "status": "published",
+  "published_at": "2026-04-06T00:00:00.000Z",
+  "note": "Block payload mirrors frontend/src/data/servicesDevServicesDelivery.ts — future GET /delivery/pages/:slug merge.",
+  "block_types_in_order": [
+    "dev_services_nav",
+    "dev_services_hero",
+    "dev_services_offerings",
+    "dev_services_why",
+    "dev_services_process",
+    "dev_services_portfolio",
+    "dev_services_cta",
+    "dev_services_footer"
+  ]
+}
