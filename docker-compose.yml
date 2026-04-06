@@ -1,7 +1,15 @@
-# API needs AWS credentials for DynamoDB. Pick one:
-#   - env file: AWS_ENV_FILE=./aws-credentials.env docker compose up (file holds AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, optional AWS_SESSION_TOKEN)
-#   - exported in your shell before compose (Compose passes them through if listed below)
-#   - on EC2/ECS/Lambda: omit keys and use an instance/task role with dynamodb:* on the table
+# API needs AWS credentials for DynamoDB.
+#
+# Docker: run from THIS directory (headless-cms) so ./aws-credentials.env is found:
+#   cp aws-credentials.env.example aws-credentials.env
+#   # edit aws-credentials.env — no quotes, no spaces around =
+#   docker compose up api
+#
+# Or point Compose at another file: AWS_ENV_FILE=/absolute/path/keys.env docker compose up api
+#
+# If you use `aws configure` on the host, uncomment the ~/.aws volume on `api` below.
+#
+# On EC2/ECS/Lambda: attach an IAM role with DynamoDB access to the task/instance (no .env file needed).
 services:
   api:
     build:
@@ -16,6 +24,8 @@ services:
       - ./backend/app:/app/app
       - ./backend/seeds:/app/seeds:ro
       - ./backend/requirements.txt:/app/requirements.txt:ro
+      # Host AWS CLI credentials (optional). Requires aws-credentials.env OR this mount, not necessarily both.
+      # - ${HOME}/.aws:/root/.aws:ro
     environment:
       - AWS_REGION=${AWS_REGION:-us-east-1}
       - DYNAMODB_TABLE=${DYNAMODB_TABLE:-infraguys-headless-cms}
