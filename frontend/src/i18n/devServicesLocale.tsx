@@ -11,6 +11,7 @@ import {
   devServicesMessages,
   type DevServicesLocale,
 } from "../content/dev-services-translations";
+import { automationMessages } from "../content/automation-translations";
 import { deploymentMessages } from "../content/deployment-translations";
 
 export type MessageKey = keyof (typeof devServicesMessages)["en"];
@@ -33,6 +34,12 @@ const DEPLOY_DOC_TITLE: Record<DevServicesLocale, string> = {
   en: "Deployment Services – The Infra Guys",
   th: "บริการ Deploy – The Infra Guys",
   ar: "خدمات النشر – The Infra Guys",
+};
+
+const AUTO_DOC_TITLE: Record<DevServicesLocale, string> = {
+  en: "Automation Services – The Infra Guys",
+  th: "บริการ Automation – The Infra Guys",
+  ar: "خدمات الأتمتة – The Infra Guys",
 };
 
 function ServiceMarketingLocaleProvider({
@@ -110,11 +117,29 @@ export function DeploymentLocaleProvider({
   );
 }
 
+export function AutomationLocaleProvider({
+  children,
+  initialLocale = "en",
+}: {
+  children: ReactNode;
+  initialLocale?: DevServicesLocale;
+}) {
+  return (
+    <ServiceMarketingLocaleProvider
+      messages={automationMessages}
+      docTitles={AUTO_DOC_TITLE}
+      initialLocale={initialLocale}
+    >
+      {children}
+    </ServiceMarketingLocaleProvider>
+  );
+}
+
 export function useDevServicesLocale(): Ctx {
   const c = useContext(ServiceMarketingLocaleContext);
   if (!c) {
     throw new Error(
-      "useDevServicesLocale must be used within DevServicesLocaleProvider or DeploymentLocaleProvider"
+      "useDevServicesLocale must be used within a service marketing locale provider (Dev, Deployment, or Automation)"
     );
   }
   return c;

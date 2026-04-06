@@ -22,9 +22,11 @@ PK = f"TENANT#{TENANT_ID}"
 PAGE_HOME_ID = "01JG9HOME0001"
 PAGE_DEV_ID = "01JG9DEVSVC001"
 PAGE_DEPLOY_ID = "01JG9DEPLOY001"
+PAGE_AUTO_ID = "01JG9AUTO001"
 PUBLISHED_HOME_AT = "2026-04-06T12:00:00.000Z"
 PUBLISHED_DEV_AT = "2026-04-06T12:01:00.000Z"
 PUBLISHED_DEPLOY_AT = "2026-04-06T12:02:00.000Z"
+PUBLISHED_AUTO_AT = "2026-04-06T12:03:00.000Z"
 
 
 def load_blocks(name: str) -> list:
@@ -36,6 +38,7 @@ def items() -> list[dict]:
     home_blocks = load_blocks("home-blocks.json")
     dev_blocks = load_blocks("dev-services-blocks.json")
     deployment_blocks = load_blocks("deployment-blocks.json")
+    automation_blocks = load_blocks("automation-blocks.json")
 
     return [
         {
@@ -140,6 +143,34 @@ def items() -> list[dict]:
             "version": 1,
             "blocks": deployment_blocks,
         },
+        {
+            "pk": PK,
+            "sk": f"PAGE#{PAGE_AUTO_ID}",
+            "entity": "page_meta",
+            "page_id": PAGE_AUTO_ID,
+            "tenant_id": TENANT_ID,
+            "slug": "services/automation.html",
+            "template": "automation_services_marketing",
+            "status": "published",
+            "published_at": PUBLISHED_AUTO_AT,
+            "locales": ["en", "th", "ar"],
+            "version": 1,
+            "G1PK": f"TENANT#{TENANT_ID}#services/automation.html",
+            "G1SK": f"PAGE#{PAGE_AUTO_ID}",
+            "G2PK": f"TENANT#{TENANT_ID}#published",
+            "G2SK": f"{PUBLISHED_AUTO_AT}#{PAGE_AUTO_ID}",
+        },
+        {
+            "pk": PK,
+            "sk": f"PAGE#{PAGE_AUTO_ID}#LANG#en",
+            "entity": "page_translation",
+            "page_id": PAGE_AUTO_ID,
+            "tenant_id": TENANT_ID,
+            "locale": "en",
+            "slug": "services/automation.html",
+            "version": 1,
+            "blocks": automation_blocks,
+        },
     ]
 
 
@@ -160,6 +191,7 @@ def main() -> None:
         load_blocks("home-blocks.json")
         load_blocks("dev-services-blocks.json")
         load_blocks("deployment-blocks.json")
+        load_blocks("automation-blocks.json")
     except FileNotFoundError:
         print(
             "Missing generated/*.json — run from repo:\n"

@@ -1,5 +1,6 @@
 import type { DeliveryPage } from "../types/cms";
 import { apiOrigin } from "./apiOrigin";
+import { getStaticDeliveryPage } from "./staticDeliveryPages";
 
 /** Build path-safe URL: `/delivery/pages/a/b` with encoded segments. */
 function deliveryPagePath(slug: string): string {
@@ -19,11 +20,13 @@ export async function fetchDeliveryPage(
   url.searchParams.set("locale", locale);
 
   const res = await fetch(url.toString());
-  if (!res.ok) {
-    const detail = await res.text().catch(() => res.statusText);
-    throw new Error(
-      `Delivery ${res.status}: ${detail || res.statusText}`
-    );
+  if (res.ok) {
+    return res.json() as Promise<DeliveryPage>;
   }
-  return res.json() as Promise<DeliveryPage>;
+  if (res.status === 404) {
+    const fallback = getStaticDeliveryPage(tenantId, slug);
+    if (fallback) return fallback;
+  }
+  const detail = await res.text().catch(() => res.statusText);
+  throw new Error(`Delivery ${res.status}: ${detail || res.statusText}`);
 }

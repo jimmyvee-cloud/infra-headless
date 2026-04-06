@@ -26,6 +26,7 @@ const HOME_PILLARS: InfraHomePillarConfig[] = [
   {
     titleKey: "auto_section_title",
     leadKey: "auto_section_lead",
+    titleHref: "/services/automation.html",
     itemKeys: ["auto_i1", "auto_i2", "auto_i3", "auto_i4"],
   },
 ];

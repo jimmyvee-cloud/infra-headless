@@ -1,88 +1,134 @@
 [
   {
-    "id": "home_nav",
-    "type": "infra_home_nav",
+    "id": "blk_nav",
+    "type": "dev_services_nav",
     "order": 0,
     "props": {}
   },
   {
-    "id": "home_hero",
-    "type": "infra_home_hero",
+    "id": "blk_hero",
+    "type": "dev_services_hero",
     "order": 1,
     "props": {
-      "image_src": "/dev-services-assets/infra-guys-hero.png",
-      "image_alt": "Infra Guys — cloud infrastructure and automation"
+      "image_src": "/dev-services-assets/services.png",
+      "image_alt": "Business automation and AI on AWS"
     }
   },
   {
-    "id": "home_services_overview",
-    "type": "infra_home_services_overview",
+    "id": "blk_offerings",
+    "type": "dev_services_offerings",
     "order": 2,
     "props": {
-      "pillars": [
+      "cards": [
         {
-          "titleKey": "build_section_title",
-          "leadKey": "build_section_lead",
-          "titleHref": "/services/dev-services.html",
-          "itemKeys": [
-            "build_i1",
-            "build_i2",
-            "build_i3",
-            "build_i4",
-            "build_i5",
-            "build_i6",
-            "build_i7"
-          ]
+          "icon": "bi-funnel-fill",
+          "tags": [
+            "Lead routing",
+            "EventBridge",
+            "Step Functions",
+            "CRM hooks"
+          ],
+          "titleKey": "svc1_title",
+          "descKey": "svc1_desc"
         },
         {
-          "titleKey": "deploy_section_title",
-          "leadKey": "deploy_section_lead",
-          "titleHref": "/services/deployment.html",
-          "itemKeys": [
-            "deploy_i1",
-            "deploy_i2",
-            "deploy_i3"
-          ]
+          "icon": "bi-inboxes-fill",
+          "tags": [
+            "Queues",
+            "Ticketing",
+            "Schedules",
+            "HITL"
+          ],
+          "titleKey": "svc2_title",
+          "descKey": "svc2_desc"
         },
         {
-          "titleKey": "auto_section_title",
-          "leadKey": "auto_section_lead",
-          "titleHref": "/services/automation.html",
-          "itemKeys": [
-            "auto_i1",
-            "auto_i2",
-            "auto_i3",
-            "auto_i4"
-          ]
+          "icon": "bi-cpu-fill",
+          "tags": [
+            "Bedrock",
+            "SageMaker",
+            "Agents",
+            "Evals"
+          ],
+          "titleKey": "svc3_title",
+          "descKey": "svc3_desc"
+        },
+        {
+          "icon": "bi-plug-fill",
+          "tags": [
+            "APIs",
+            "Webhooks",
+            "DLQ",
+            "Dashboards"
+          ],
+          "titleKey": "svc4_title",
+          "descKey": "svc4_desc"
         }
       ]
     }
   },
   {
-    "id": "home_spotlight",
-    "type": "infra_home_spotlight",
+    "id": "blk_why",
+    "type": "dev_services_why",
     "order": 3,
     "props": {
       "cards": [
         {
-          "titleKey": "diff_1_title",
-          "bodyKey": "diff_1_body"
+          "icon": "bi-shield-check-fill",
+          "titleKey": "why1_title",
+          "bodyKey": "why1_body"
         },
         {
-          "titleKey": "diff_2_title",
-          "bodyKey": "diff_2_body"
+          "icon": "bi-box-seam-fill",
+          "titleKey": "why2_title",
+          "bodyKey": "why2_body"
         },
         {
-          "titleKey": "diff_3_title",
-          "bodyKey": "diff_3_body"
+          "icon": "bi-diagram-3-fill",
+          "titleKey": "why3_title",
+          "bodyKey": "why3_body"
+        },
+        {
+          "icon": "bi-calendar2-check-fill",
+          "titleKey": "why4_title",
+          "bodyKey": "why4_body"
         }
       ]
     }
   },
   {
-    "id": "home_portfolio",
-    "type": "infra_home_portfolio",
+    "id": "blk_process",
+    "type": "dev_services_process",
     "order": 4,
+    "props": {
+      "steps": [
+        {
+          "num": "01",
+          "titleKey": "step1_title",
+          "bodyKey": "step1_body"
+        },
+        {
+          "num": "02",
+          "titleKey": "step2_title",
+          "bodyKey": "step2_body"
+        },
+        {
+          "num": "03",
+          "titleKey": "step3_title",
+          "bodyKey": "step3_body"
+        },
+        {
+          "num": "04",
+          "titleKey": "step4_title",
+          "bodyKey": "step4_body"
+        }
+      ]
+    }
+  },
+  {
+    "id": "blk_portfolio",
+    "type": "dev_services_portfolio",
+    "order": 5,
     "props": {
       "projects": [
         {
@@ -214,18 +260,18 @@
     }
   },
   {
-    "id": "home_cta",
-    "type": "infra_home_cta",
-    "order": 5,
+    "id": "blk_cta",
+    "type": "dev_services_cta",
+    "order": 6,
     "props": {
       "mailto": "hello@infra-guys.com",
-      "secondary_url": "https://infra-guys.com"
+      "home_url": "https://infra-guys.com"
     }
   },
   {
-    "id": "home_footer",
-    "type": "infra_home_footer",
-    "order": 6,
+    "id": "blk_footer",
+    "type": "dev_services_footer",
+    "order": 7,
     "props": {
       "mailto": "hello@infra-guys.com"
     }

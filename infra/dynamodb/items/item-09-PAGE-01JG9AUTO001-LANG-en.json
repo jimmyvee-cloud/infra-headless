@@ -3,13 +3,13 @@
     "S": "TENANT#infra_guys_website_main"
   },
   "sk": {
-    "S": "PAGE#01JG9HOME0001#LANG#en"
+    "S": "PAGE#01JG9AUTO001#LANG#en"
   },
   "entity": {
     "S": "page_translation"
   },
   "page_id": {
-    "S": "01JG9HOME0001"
+    "S": "01JG9AUTO001"
   },
   "tenant_id": {
     "S": "infra_guys_website_main"
@@ -18,7 +18,7 @@
     "S": "en"
   },
   "slug": {
-    "S": "index"
+    "S": "services/automation.html"
   },
   "version": {
     "N": "1"
@@ -28,10 +28,10 @@
       {
         "M": {
           "id": {
-            "S": "home_nav"
+            "S": "blk_nav"
           },
           "type": {
-            "S": "infra_home_nav"
+            "S": "dev_services_nav"
           },
           "order": {
             "N": "0"
@@ -44,10 +44,10 @@
       {
         "M": {
           "id": {
-            "S": "home_hero"
+            "S": "blk_hero"
           },
           "type": {
-            "S": "infra_home_hero"
+            "S": "dev_services_hero"
           },
           "order": {
             "N": "1"
@@ -55,10 +55,10 @@
           "props": {
             "M": {
               "image_src": {
-                "S": "/dev-services-assets/infra-guys-hero.png"
+                "S": "/dev-services-assets/services.png"
               },
               "image_alt": {
-                "S": "Infra Guys \u2014 cloud infrastructure and automation"
+                "S": "Business automation and AI on AWS"
               }
             }
           }
@@ -67,108 +67,131 @@
       {
         "M": {
           "id": {
-            "S": "home_services_overview"
+            "S": "blk_offerings"
           },
           "type": {
-            "S": "infra_home_services_overview"
+            "S": "dev_services_offerings"
           },
           "order": {
             "N": "2"
           },
           "props": {
             "M": {
-              "pillars": {
+              "cards": {
                 "L": [
                   {
                     "M": {
-                      "titleKey": {
-                        "S": "build_section_title"
+                      "icon": {
+                        "S": "bi-funnel-fill"
                       },
-                      "leadKey": {
-                        "S": "build_section_lead"
-                      },
-                      "titleHref": {
-                        "S": "/services/dev-services.html"
-                      },
-                      "itemKeys": {
+                      "tags": {
                         "L": [
                           {
-                            "S": "build_i1"
+                            "S": "Lead routing"
                           },
                           {
-                            "S": "build_i2"
+                            "S": "EventBridge"
                           },
                           {
-                            "S": "build_i3"
+                            "S": "Step Functions"
                           },
                           {
-                            "S": "build_i4"
-                          },
-                          {
-                            "S": "build_i5"
-                          },
-                          {
-                            "S": "build_i6"
-                          },
-                          {
-                            "S": "build_i7"
+                            "S": "CRM hooks"
                           }
                         ]
+                      },
+                      "titleKey": {
+                        "S": "svc1_title"
+                      },
+                      "descKey": {
+                        "S": "svc1_desc"
                       }
                     }
                   },
                   {
                     "M": {
-                      "titleKey": {
-                        "S": "deploy_section_title"
+                      "icon": {
+                        "S": "bi-inboxes-fill"
                       },
-                      "leadKey": {
-                        "S": "deploy_section_lead"
-                      },
-                      "titleHref": {
-                        "S": "/services/deployment.html"
-                      },
-                      "itemKeys": {
+                      "tags": {
                         "L": [
                           {
-                            "S": "deploy_i1"
+                            "S": "Queues"
                           },
                           {
-                            "S": "deploy_i2"
+                            "S": "Ticketing"
                           },
                           {
-                            "S": "deploy_i3"
+                            "S": "Schedules"
+                          },
+                          {
+                            "S": "HITL"
                           }
                         ]
+                      },
+                      "titleKey": {
+                        "S": "svc2_title"
+                      },
+                      "descKey": {
+                        "S": "svc2_desc"
                       }
                     }
                   },
                   {
                     "M": {
-                      "titleKey": {
-                        "S": "auto_section_title"
+                      "icon": {
+                        "S": "bi-cpu-fill"
                       },
-                      "leadKey": {
-                        "S": "auto_section_lead"
-                      },
-                      "titleHref": {
-                        "S": "/services/automation.html"
-                      },
-                      "itemKeys": {
+                      "tags": {
                         "L": [
                           {
-                            "S": "auto_i1"
+                            "S": "Bedrock"
                           },
                           {
-                            "S": "auto_i2"
+                            "S": "SageMaker"
                           },
                           {
-                            "S": "auto_i3"
+                            "S": "Agents"
                           },
                           {
-                            "S": "auto_i4"
+                            "S": "Evals"
                           }
                         ]
+                      },
+                      "titleKey": {
+                        "S": "svc3_title"
+                      },
+                      "descKey": {
+                        "S": "svc3_desc"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-plug-fill"
+                      },
+                      "tags": {
+                        "L": [
+                          {
+                            "S": "APIs"
+                          },
+                          {
+                            "S": "Webhooks"
+                          },
+                          {
+                            "S": "DLQ"
+                          },
+                          {
+                            "S": "Dashboards"
+                          }
+                        ]
+                      },
+                      "titleKey": {
+                        "S": "svc4_title"
+                      },
+                      "descKey": {
+                        "S": "svc4_desc"
                       }
                     }
                   }
@@ -181,10 +204,10 @@
       {
         "M": {
           "id": {
-            "S": "home_spotlight"
+            "S": "blk_why"
           },
           "type": {
-            "S": "infra_home_spotlight"
+            "S": "dev_services_why"
           },
           "order": {
             "N": "3"
@@ -195,31 +218,53 @@
                 "L": [
                   {
                     "M": {
+                      "icon": {
+                        "S": "bi-shield-check-fill"
+                      },
                       "titleKey": {
-                        "S": "diff_1_title"
+                        "S": "why1_title"
                       },
                       "bodyKey": {
-                        "S": "diff_1_body"
+                        "S": "why1_body"
                       }
                     }
                   },
                   {
                     "M": {
+                      "icon": {
+                        "S": "bi-box-seam-fill"
+                      },
                       "titleKey": {
-                        "S": "diff_2_title"
+                        "S": "why2_title"
                       },
                       "bodyKey": {
-                        "S": "diff_2_body"
+                        "S": "why2_body"
                       }
                     }
                   },
                   {
                     "M": {
+                      "icon": {
+                        "S": "bi-diagram-3-fill"
+                      },
                       "titleKey": {
-                        "S": "diff_3_title"
+                        "S": "why3_title"
                       },
                       "bodyKey": {
-                        "S": "diff_3_body"
+                        "S": "why3_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "icon": {
+                        "S": "bi-calendar2-check-fill"
+                      },
+                      "titleKey": {
+                        "S": "why4_title"
+                      },
+                      "bodyKey": {
+                        "S": "why4_body"
                       }
                     }
                   }
@@ -232,13 +277,86 @@
       {
         "M": {
           "id": {
-            "S": "home_portfolio"
+            "S": "blk_process"
           },
           "type": {
-            "S": "infra_home_portfolio"
+            "S": "dev_services_process"
           },
           "order": {
             "N": "4"
+          },
+          "props": {
+            "M": {
+              "steps": {
+                "L": [
+                  {
+                    "M": {
+                      "num": {
+                        "S": "01"
+                      },
+                      "titleKey": {
+                        "S": "step1_title"
+                      },
+                      "bodyKey": {
+                        "S": "step1_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "02"
+                      },
+                      "titleKey": {
+                        "S": "step2_title"
+                      },
+                      "bodyKey": {
+                        "S": "step2_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "03"
+                      },
+                      "titleKey": {
+                        "S": "step3_title"
+                      },
+                      "bodyKey": {
+                        "S": "step3_body"
+                      }
+                    }
+                  },
+                  {
+                    "M": {
+                      "num": {
+                        "S": "04"
+                      },
+                      "titleKey": {
+                        "S": "step4_title"
+                      },
+                      "bodyKey": {
+                        "S": "step4_body"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "M": {
+          "id": {
+            "S": "blk_portfolio"
+          },
+          "type": {
+            "S": "dev_services_portfolio"
+          },
+          "order": {
+            "N": "5"
           },
           "props": {
             "M": {
@@ -600,20 +718,20 @@
       {
         "M": {
           "id": {
-            "S": "home_cta"
+            "S": "blk_cta"
           },
           "type": {
-            "S": "infra_home_cta"
+            "S": "dev_services_cta"
           },
           "order": {
-            "N": "5"
+            "N": "6"
           },
           "props": {
             "M": {
               "mailto": {
                 "S": "hello@infra-guys.com"
               },
-              "secondary_url": {
+              "home_url": {
                 "S": "https://infra-guys.com"
               }
             }
@@ -623,13 +741,13 @@
       {
         "M": {
           "id": {
-            "S": "home_footer"
+            "S": "blk_footer"
           },
           "type": {
-            "S": "infra_home_footer"
+            "S": "dev_services_footer"
           },
           "order": {
-            "N": "6"
+            "N": "7"
           },
           "props": {
             "M": {

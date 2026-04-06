@@ -10,14 +10,14 @@ export const homeMessages = {
     hero_h1:
       "Cloud engineering for teams that need to <span class='accent'>ship</span> — and keep shipping.",
     hero_lead:
-      "We're a build–deploy–automate partner: premium and accessible web products on AWS, hardened delivery pipelines, and AI-backed automation for the work that shouldn't eat your week. Below is a high-level map — the Build section title links to our development services page for the full delivery story.",
+      "We're a build–deploy–automate partner: premium and accessible web products on AWS, hardened delivery pipelines, and AI-backed automation for the work that shouldn't eat your week. Below is a high-level map — each pillar title (Build, Deploy, Automate) links to a focused services page for the full story.",
     hero_cta_primary: "Talk to us",
     hero_cta_secondary: "What we offer",
 
     services_overview_label: "Services overview",
     services_overview_title: "What we do — at a glance",
     services_overview_lead:
-      "Three practice areas — Build, Deploy, Automate — covering product development on AWS, turning existing systems into repeatable cloud deployments, and operational/AI automation. Tell us your constraint; we'll map the smallest valuable engagement.",
+      "Three practice areas — <a href=\"/services/dev-services.html\" class=\"services-overview-inline-link\">Build</a>, <a href=\"/services/deployment.html\" class=\"services-overview-inline-link\">Deploy</a>, <a href=\"/services/automation.html\" class=\"services-overview-inline-link\">Automate</a> — covering product development on AWS, turning existing systems into repeatable cloud deployments, and operational/AI automation. Tell us your constraint; we'll map the smallest valuable engagement.",
 
     build_section_title: "Build",
     build_section_lead:
@@ -96,6 +96,8 @@ export const homeMessages = {
     footer_home: "Home",
     footer_services: "What we do",
     footer_dev: "Development services",
+    footer_deploy: "Deployment services",
+    footer_auto: "Automation services",
     footer_copy: "© 2026 The InfraGuys. All rights reserved.",
   },
 
@@ -108,7 +110,7 @@ export const homeMessages = {
     hero_h1:
       "วิศวกรรมคลาวด์สำหรับทีมที่ต้อง <span class='accent'>ส่งมอบ</span> — และส่งมอบต่อเนื่อง",
     hero_lead:
-      "เราคือพาร์ทเนอร์ครบวงจร: Build–Deploy–Automate — สินค้าบน AWS ทั้งระดับพรีเมียมและแพ็กเกจสมัครสมาชิก, สายส่งมอบที่แข็งแรง, และ automation/AI สำหรับงานที่ไม่ควรกินเวลาทีม ด้านล่างคือภาพรวม — หัวข้อ Build เป็นปุ่มไปหน้าบริการพัฒนาสำหรับรายละเอียดเต็ม",
+      "เราคือพาร์ทเนอร์ครบวงจร: Build–Deploy–Automate — สินค้าบน AWS ทั้งระดับพรีเมียมและแพ็กเกจสมัครสมาชิก, สายส่งมอบที่แข็งแรง, และ automation/AI สำหรับงานที่ไม่ควรกินเวลาทีม ด้านล่างคือภาพรวม — หัวข้อแต่ละเสา (Build, Deploy, Automate) ลิงก์ไปหน้าบริการเฉพาะทางสำหรับรายละเอียดเต็ม",
 
     hero_cta_primary: "คุยกับเรา",
     hero_cta_secondary: "บริการของเรา",
@@ -116,7 +118,7 @@ export const homeMessages = {
     services_overview_label: "ภาพรวมบริการ",
     services_overview_title: "สิ่งที่เราทำ — มุมมองรวม",
     services_overview_lead:
-      "สามด้าน: Build, Deploy, Automate — พัฒนาผลิตภัณฑ์บน AWS ยกระบบเดิมขึ้นคลาวด์แบบทำซ้ำได้ และ automation/AI สำหรับงานปฏิบัติการ",
+      "สามด้าน: <a href=\"/services/dev-services.html\" class=\"services-overview-inline-link\">Build</a>, <a href=\"/services/deployment.html\" class=\"services-overview-inline-link\">Deploy</a>, <a href=\"/services/automation.html\" class=\"services-overview-inline-link\">Automate</a> — พัฒนาผลิตภัณฑ์บน AWS ยกระบบเดิมขึ้นคลาวด์แบบทำซ้ำได้ และ automation/AI สำหรับงานปฏิบัติการ",
 
     build_section_title: "Build",
     build_section_lead:
@@ -183,6 +185,8 @@ export const homeMessages = {
     footer_home: "หน้าหลัก",
     footer_services: "สิ่งที่เราทำ",
     footer_dev: "บริการพัฒนา",
+    footer_deploy: "บริการดีพลอย",
+    footer_auto: "บริการอัตโนมัติ",
     footer_copy: "© 2026 The InfraGuys สงวนลิขสิทธิ์",
   },
 
@@ -195,7 +199,7 @@ export const homeMessages = {
     hero_h1:
       "هندسة سحابية للفرق التي تحتاج أن <span class='accent'>تُسلّم</span> — وتُسلّم باستمرار.",
     hero_lead:
-      "شريك لثلاث مراحل: البناء، النشر، الأتمتة — منتجات ويب فاخرة وفي متناول الجميع على AWS، مسارات تسليم صارمة، وأتمتة وذكاء اصطناعي للمهام التي لا يجب أن تستهلك أسبوعكم. فيما يلي ملخص؛ عنوان قسم «البناء» يؤدي لصفحة خدمات التطوير للقصة الكاملة.",
+      "شريك لثلاث مراحل: البناء، النشر، الأتمتة — منتجات ويب فاخرة وفي متناول الجميع على AWS، مسارات تسليم صارمة، وأتمتة وذكاء اصطناعي للمهام التي لا يجب أن تستهلك أسبوعكم. فيما يلي ملخص؛ عنوان كل عمود (البناء، النشر، الأتمتة) يؤدي لصفحة خدمات مخصّصة للقصة كاملة.",
 
     hero_cta_primary: "تواصل معنا",
     hero_cta_secondary: "ماذا نقدّم",
@@ -203,7 +207,7 @@ export const homeMessages = {
     services_overview_label: "نظرة عامة",
     services_overview_title: "ما نقدّمه — ملخص",
     services_overview_lead:
-      "ثلاث مجالات: البناء، النشر، الأتمتة — تطوير منتجات على AWS، نقل أنظمة قائمة إلى سحابة قابلة لإعادة النشر، وأتمتة تشغيلية وبمساعدة الذكاء الاصطناعي.",
+      "ثلاث مجالات: <a href=\"/services/dev-services.html\" class=\"services-overview-inline-link\">البناء</a>، <a href=\"/services/deployment.html\" class=\"services-overview-inline-link\">النشر</a>، <a href=\"/services/automation.html\" class=\"services-overview-inline-link\">الأتمتة</a> — تطوير منتجات على AWS، نقل أنظمة قائمة إلى سحابة قابلة لإعادة النشر، وأتمتة تشغيلية وبمساعدة الذكاء الاصطناعي.",
 
     build_section_title: "البناء",
     build_section_lead:
@@ -264,6 +268,8 @@ export const homeMessages = {
     footer_home: "الرئيسية",
     footer_services: "ما نقدّمه",
     footer_dev: "خدمات التطوير",
+    footer_deploy: "خدمات النشر",
+    footer_auto: "خدمات الأتمتة",
     footer_copy: "© 2026 The InfraGuys. جميع الحقوق محفوظة.",
   },
 } as const;

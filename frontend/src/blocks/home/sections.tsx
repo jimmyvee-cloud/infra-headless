@@ -124,6 +124,15 @@ export function InfraHomeHero({ id, props }: BlockProps<HeroProps>) {
 
 type ServicesOverviewProps = { pillars: InfraHomePillarConfig[] };
 
+/** Ensures pillar headings link even when delivery JSON predates titleHref. */
+const PILLAR_TITLE_DEFAULT_HREF: Partial<
+  Record<InfraHomePillarConfig["titleKey"], string>
+> = {
+  build_section_title: "/services/dev-services.html",
+  deploy_section_title: "/services/deployment.html",
+  auto_section_title: "/services/automation.html",
+};
+
 export function InfraHomeServicesOverview({
   id,
   props,
@@ -146,20 +155,22 @@ export function InfraHomeServicesOverview({
               fontSize: "1.05rem",
               lineHeight: 1.7,
             }}
-          >
-            {t("services_overview_lead")}
-          </p>
+            dangerouslySetInnerHTML={{ __html: t("services_overview_lead") }}
+          />
         </div>
 
-        {props.pillars.map((pillar) => (
+        {props.pillars.map((pillar) => {
+          const titleHref =
+            pillar.titleHref ?? PILLAR_TITLE_DEFAULT_HREF[pillar.titleKey];
+          return (
           <div
             key={pillar.titleKey}
             className="overview-pillar-block overview-pillar-head"
           >
             <h3 className="section-title">
-              {pillar.titleHref ? (
+              {titleHref ? (
                 <a
-                  href={pillar.titleHref}
+                  href={titleHref}
                   className="text-reset"
                   style={{
                     textDecoration: "none",
@@ -205,7 +216,8 @@ export function InfraHomeServicesOverview({
               })}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );
@@ -410,6 +422,8 @@ export function InfraHomeFooter({ id, props }: BlockProps<FooterProps>) {
             <a href="/">{t("footer_home")}</a>
             <a href="#services-overview">{t("footer_services")}</a>
             <a href="/services/dev-services.html">{t("footer_dev")}</a>
+            <a href="/services/deployment.html">{t("footer_deploy")}</a>
+            <a href="/services/automation.html">{t("footer_auto")}</a>
             <a href={`mailto:${props.mailto}`}>{props.mailto}</a>
           </div>
         </div>
