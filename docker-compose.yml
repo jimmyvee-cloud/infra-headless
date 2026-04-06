@@ -1,17 +1,14 @@
-# API needs a file `aws-credentials.env` (same folder as this compose file) so Docker Compose
-# always passes environment into the container. Create it before first run:
+# Stack needs a `.env` file beside this compose file (copy from `.env.example`).
+# Compose injects it into the `api` container. Typical workflow:
 #
-#   cp aws-credentials.env.example aws-credentials.env
+#   cp .env.example .env
+#   nano .env    # set AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY (or leave blank if ~/.aws mount is enough)
+#   docker compose up -d --force-recreate api
 #
-# Then set keys inside that file — OR leave keys blank and rely on the host ~/.aws mount below,
-# OR on EC2 with an instance profile you may use `touch aws-credentials.env` and rely on IMDS
-# (works for many Docker-on-EC2 setups; use ECS task role + secrets for production).
+# Host AWS CLI credentials: we mount `~/.aws`. With `sudo docker compose`, HOME is often /root → empty mount.
+# Fix: `sudo -E docker compose up api` or `HOST_AWS_CREDENTIALS_DIR=/home/YOU/.aws docker compose up api`
 #
-# Host `aws configure`: credentials live in ~/.aws (mounted into the container).
-# If you run `sudo docker compose`, HOME becomes /root and the mount may be empty — use:
-#   sudo -E docker compose up api
-# or:
-#   HOST_AWS_CREDENTIALS_DIR=/home/YOUR_LINUX_USER/.aws docker compose up api
+# EC2 instance profile: often works from inside the container; leave AWS keys blank in `.env` if so.
 services:
   api:
     build:
@@ -20,7 +17,7 @@ services:
     ports:
       - "8800:8000"
     env_file:
-      - aws-credentials.env
+      - .env
     volumes:
       - ./backend/app:/app/app
       - ./backend/seeds:/app/seeds:ro
@@ -44,7 +41,6 @@ services:
       - web_node_modules:/app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
-      # Browser talks to host port WEB_HOST_PORT; HMR must use the same public port.
       - VITE_HMR_CLIENT_PORT=${WEB_HOST_PORT:-5174}
     command: ["/usr/local/bin/docker-entrypoint.sh", "npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
 

@@ -1,3 +1,2 @@
 # Local secrets for docker-compose (see docker-compose.yml, .env.example)
 .env
-aws-credentials.env

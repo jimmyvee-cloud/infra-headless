@@ -89,9 +89,10 @@ def health():
                 and not out["container_aws_credentials_file_exists"]
             ):
                 out["dynamo_hint"] += (
-                    " Your /health shows no key in env and no /root/.aws/credentials in the "
-                    "container — rebuild/recreate the api service after fixing docker-compose "
-                    "volumes or aws-credentials.env."
+                    " Your /health shows no key in env and no ~/.aws/credentials in the container — "
+                    "put keys in `.env` next to docker-compose.yml (or rely on the compose `~/.aws` mount), "
+                    "then `docker compose up -d --force-recreate api`. `docker exec` cannot inject "
+                    "credentials into an already-running uvicorn process."
                 )
         return out
 
