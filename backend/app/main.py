@@ -12,16 +12,35 @@ from app.delivery_store import (
 
 DEFAULT_TENANT_ID = os.environ.get("DEFAULT_TENANT_ID", "infra_guys_website_main")
 
-app = FastAPI(title="Headless CMS API", version="0.1.0")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+def _cors_allow_origins() -> list[str]:
+    """Browser origins allowed to call this API. Merge defaults + CORS_ORIGINS (comma-separated)."""
+    defaults = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
         "http://localhost:5174",
         "http://127.0.0.1:5174",
-    ],
+        "https://infra-guys.com",
+        "https://www.infra-guys.com",
+    ]
+    extra = os.environ.get("CORS_ORIGINS", "").strip()
+    if not extra:
+        return defaults
+    merged = defaults + [o.strip() for o in extra.split(",") if o.strip()]
+    seen: set[str] = set()
+    out: list[str] = []
+    for o in merged:
+        if o not in seen:
+            seen.add(o)
+            out.append(o)
+    return out
+
+
+app = FastAPI(title="Headless CMS API", version="0.1.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=_cors_allow_origins(),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
