@@ -16,14 +16,13 @@ DEFAULT_TENANT_ID = os.environ.get("DEFAULT_TENANT_ID", "infra_guys_website_main
 
 def _credential_visibility() -> dict[str, bool]:
     """Non-secret booleans for /health — whether the container likely has AWS identity sources."""
+    home = Path(os.environ.get("HOME", "/root"))
     return {
         "aws_access_key_in_env": bool(os.environ.get("AWS_ACCESS_KEY_ID", "").strip()),
         "aws_secret_access_key_in_env": bool(
             os.environ.get("AWS_SECRET_ACCESS_KEY", "").strip()
         ),
-        "container_aws_credentials_file_exists": Path(
-            "/root/.aws/credentials"
-        ).is_file(),
+        "container_aws_credentials_file_exists": (home / ".aws" / "credentials").is_file(),
     }
 
 
