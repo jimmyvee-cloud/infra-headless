@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from botocore.exceptions import BotoCoreError, ClientError
 from fastapi import FastAPI, HTTPException
@@ -11,6 +12,19 @@ from app.delivery_store import (
 )
 
 DEFAULT_TENANT_ID = os.environ.get("DEFAULT_TENANT_ID", "infra_guys_website_main")
+
+
+def _credential_visibility() -> dict[str, bool]:
+    """Non-secret booleans for /health — whether the container likely has AWS identity sources."""
+    return {
+        "aws_access_key_in_env": bool(os.environ.get("AWS_ACCESS_KEY_ID", "").strip()),
+        "aws_secret_access_key_in_env": bool(
+            os.environ.get("AWS_SECRET_ACCESS_KEY", "").strip()
+        ),
+        "container_aws_credentials_file_exists": Path(
+            "/root/.aws/credentials"
+        ).is_file(),
+    }
 
 
 def _cors_allow_origins() -> list[str]:
@@ -53,6 +67,7 @@ def health():
         "status": "ok",
         "dynamo_table": table_name(),
     }
+    out.update(_credential_visibility())
     try:
         meta = fetch_tenant_meta(DEFAULT_TENANT_ID)
     except ClientError as e:
@@ -70,6 +85,15 @@ def health():
                 "(and AWS_SESSION_TOKEN if using temp keys), use an env_file in docker-compose, "
                 "~/.aws on the host, or run on AWS with an IAM role that can access DynamoDB."
             )
+            if (
+                not out["aws_access_key_in_env"]
+                and not out["container_aws_credentials_file_exists"]
+            ):
+                out["dynamo_hint"] += (
+                    " Your /health shows no key in env and no /root/.aws/credentials in the "
+                    "container — rebuild/recreate the api service after fixing docker-compose "
+                    "volumes or aws-credentials.env."
+                )
         return out
 
     out["dynamo_ok"] = True

@@ -7,7 +7,7 @@
 #
 # Or point Compose at another file: AWS_ENV_FILE=/absolute/path/keys.env docker compose up api
 #
-# If you use `aws configure` on the host, uncomment the ~/.aws volume on `api` below.
+# The api service mounts host ~/.aws so `aws configure` credentials are visible in the container.
 #
 # On EC2/ECS/Lambda: attach an IAM role with DynamoDB access to the task/instance (no .env file needed).
 services:
@@ -24,8 +24,7 @@ services:
       - ./backend/app:/app/app
       - ./backend/seeds:/app/seeds:ro
       - ./backend/requirements.txt:/app/requirements.txt:ro
-      # Host AWS CLI credentials (optional). Requires aws-credentials.env OR this mount, not necessarily both.
-      # - ${HOME}/.aws:/root/.aws:ro
+      - ~/.aws:/root/.aws:ro
     environment:
       - AWS_REGION=${AWS_REGION:-us-east-1}
       - DYNAMODB_TABLE=${DYNAMODB_TABLE:-infraguys-headless-cms}
