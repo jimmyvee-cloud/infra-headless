@@ -16,6 +16,12 @@ function DevShell() {
   const [health, setHealth] = useState<string>("…");
 
   useEffect(() => {
+    if (import.meta.env.VITE_STATIC_DELIVERY === "true") {
+      setHealth(
+        '{"skipped":"VITE_STATIC_DELIVERY=true — no /health request (offline UI mode)"}'
+      );
+      return;
+    }
     fetch(`${apiOrigin}/health`)
       .then((r) => r.json())
       .then((j) => setHealth(JSON.stringify(j)))

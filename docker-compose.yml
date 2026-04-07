@@ -43,6 +43,8 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - VITE_DEV_HOST=0.0.0.0
       - VITE_HMR_CLIENT_PORT=${WEB_HOST_PORT:-5174}
+      # Set true in root `.env` to run the SPA with no Dynamo/API delivery fetches (bundled pages only).
+      - VITE_STATIC_DELIVERY=${VITE_STATIC_DELIVERY:-false}
     command: ["/usr/local/bin/docker-entrypoint.sh", "npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
 
 volumes:
