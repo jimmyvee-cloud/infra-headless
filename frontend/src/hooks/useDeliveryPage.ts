@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import type { DeliveryPage } from "../types/cms";
-import { fetchDeliveryPage } from "../lib/deliveryApi";
+import {
+  fetchDeliveryPage,
+  getGuaranteedDeliveryPage,
+} from "../lib/deliveryApi";
 
 type State =
-  | { status: "loading"; page: null; error: null }
-  | { status: "ok"; page: DeliveryPage; error: null }
-  | { status: "error"; page: null; error: string };
+  | { status: "loading"; page: null }
+  | { status: "ready"; page: DeliveryPage };
 
 export function useDeliveryPage(
   tenantId: string,
@@ -15,23 +17,24 @@ export function useDeliveryPage(
   const [state, setState] = useState<State>({
     status: "loading",
     page: null,
-    error: null,
   });
 
   useEffect(() => {
     let cancelled = false;
-    setState({ status: "loading", page: null, error: null });
+    setState({ status: "loading", page: null });
 
     fetchDeliveryPage(tenantId, slug, locale)
       .then((page) => {
         if (!cancelled) {
-          setState({ status: "ok", page, error: null });
+          setState({ status: "ready", page });
         }
       })
-      .catch((e: unknown) => {
+      .catch(() => {
         if (!cancelled) {
-          const msg = e instanceof Error ? e.message : String(e);
-          setState({ status: "error", page: null, error: msg });
+          setState({
+            status: "ready",
+            page: getGuaranteedDeliveryPage(tenantId, slug, locale),
+          });
         }
       });
 

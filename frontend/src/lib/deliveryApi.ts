@@ -6,7 +6,6 @@ import { getStaticDeliveryPage } from "./staticDeliveryPages";
 
 const FETCH_TIMEOUT_MS = 12_000;
 
-/** Bundled marketing pages — used when API is down, wrong, or unreachable so the site still renders. */
 function getBundledDeliveryPage(
   tenantId: string,
   slug: string,
@@ -21,59 +20,67 @@ function getBundledDeliveryPage(
   return getStaticDeliveryPage(tenantId, slug);
 }
 
-/** Build path-safe URL: `/delivery/pages/a/b` with encoded segments. */
+/** Always returns a renderable page — bundled slug, else company home (never throws). */
+export function getGuaranteedDeliveryPage(
+  tenantId: string,
+  slug: string,
+  locale: string
+): DeliveryPage {
+  try {
+    return (
+      getBundledDeliveryPage(tenantId, slug, locale) ??
+      getHomePage("infra_guys_website_main", locale)
+    );
+  } catch {
+    return getHomePage("infra_guys_website_main", locale);
+  }
+}
+
 function deliveryPagePath(slug: string): string {
   const trimmed = slug.replace(/^\/+/, "");
   const segments = trimmed === "" ? ["index"] : trimmed.split("/");
   return segments.map(encodeURIComponent).join("/");
 }
 
+/**
+ * Prefer live API/Dynamo; on any failure, same bundled content as local dev.
+ * Never rejects — callers always get HTML blocks to render.
+ */
 export async function fetchDeliveryPage(
   tenantId: string,
   slug: string,
   locale: string
 ): Promise<DeliveryPage> {
-  const bundled = (): DeliveryPage | null =>
-    getBundledDeliveryPage(tenantId, slug, locale);
+  const guaranteed = () => getGuaranteedDeliveryPage(tenantId, slug, locale);
 
   if (import.meta.env.VITE_STATIC_DELIVERY === "true") {
-    const page = bundled();
-    if (page) return page;
-    throw new Error(
-      `Offline mode (VITE_STATIC_DELIVERY): no bundled page for slug "${slug}"`
-    );
+    return guaranteed();
   }
 
-  const path = deliveryPagePath(slug);
-  const url = new URL(`${apiOrigin}/delivery/pages/${path}`);
-  url.searchParams.set("tenant_id", tenantId);
-  url.searchParams.set("locale", locale);
-
   try {
+    const path = deliveryPagePath(slug);
+    const url = new URL(`${apiOrigin}/delivery/pages/${path}`);
+    url.searchParams.set("tenant_id", tenantId);
+    url.searchParams.set("locale", locale);
+
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), FETCH_TIMEOUT_MS);
     const res = await fetch(url.toString(), { signal: ctrl.signal });
     clearTimeout(timer);
 
     if (res.ok) {
-      const page = (await res.json()) as DeliveryPage;
-      if (!Array.isArray(page.blocks)) {
-        const fb = bundled();
-        if (fb) return fb;
+      try {
+        const page = (await res.json()) as DeliveryPage;
+        if (Array.isArray(page.blocks)) {
+          return page;
+        }
+      } catch {
+        /* non-JSON or parse error */
       }
-      return page;
     }
-
-    const fallback = bundled();
-    if (fallback) return fallback;
-
-    const detail = await res.text().catch(() => res.statusText);
-    throw new Error(`Delivery ${res.status}: ${detail || res.statusText}`);
-  } catch (e) {
-    const fallback = bundled();
-    if (fallback) return fallback;
-
-    if (e instanceof Error) throw e;
-    throw new Error(String(e));
+  } catch {
+    /* network, CORS, timeout, etc. */
   }
+
+  return guaranteed();
 }

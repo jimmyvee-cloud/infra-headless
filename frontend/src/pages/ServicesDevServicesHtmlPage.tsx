@@ -9,19 +9,11 @@ const SLUG = "services/dev-services.html";
 /** Delivery-backed page: slug matches CMS; strings follow locale via i18n merge. */
 export function ServicesDevServicesHtmlPage() {
   const { locale } = useDevServicesLocale();
-  const { status, page, error } = useDeliveryPage(TENANT, SLUG, locale);
+  const { status, page } = useDeliveryPage(TENANT, SLUG, locale);
 
-  if (status === "loading") {
+  if (status === "loading" || !page) {
     return (
       <div style={{ fontFamily: "system-ui", padding: "2rem" }}>Loading…</div>
-    );
-  }
-  if (status === "error" || !page) {
-    return (
-      <div style={{ fontFamily: "system-ui", padding: "2rem", color: "#b91c1c" }}>
-        <strong>Could not load page</strong>
-        <pre style={{ whiteSpace: "pre-wrap", marginTop: "1rem" }}>{error}</pre>
-      </div>
     );
   }
 
