@@ -4,6 +4,7 @@ from pathlib import Path
 from botocore.exceptions import BotoCoreError, ClientError
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.requests import Request
 
 from app.delivery_store import (
     fetch_tenant_meta,
@@ -35,6 +36,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.middleware("http")
+async def _chrome_private_network_cors(request: Request, call_next):
+    """Chrome may send Access-Control-Request-Private-Network on preflight; this header satisfies it."""
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Private-Network"] = "true"
+    return response
 
 
 @app.get("/health")
