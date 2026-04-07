@@ -11,6 +11,15 @@ const allowedHosts = ["infra-guys.com", "www.infra-guys.com"];
 /** Local dev defaults to loopback only (no LAN broadcast). Docker passes `--host 0.0.0.0` to allow port publish. */
 const devHost = process.env.VITE_DEV_HOST ?? "localhost";
 
+/** Browser hits Vite; same-origin `/delivery` + `/health` proxied here (avoids Chrome PNA/CORS vs :8800). Docker: `http://api:8000`. */
+const apiProxyTarget =
+  process.env.VITE_API_PROXY_TARGET ?? "http://127.0.0.1:8800";
+
+const apiProxy = {
+  "/health": apiProxyTarget,
+  "/delivery": apiProxyTarget,
+} as const;
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -26,6 +35,7 @@ export default defineConfig({
     port: 5173,
     allowedHosts,
     watch: { usePolling: true },
+    proxy: apiProxy,
     ...(hmrClientPort
       ? { hmr: { clientPort: Number(hmrClientPort) } }
       : {}),
@@ -33,5 +43,6 @@ export default defineConfig({
   preview: {
     host: devHost,
     allowedHosts,
+    proxy: apiProxy,
   },
 });

@@ -7,7 +7,10 @@ function resolveApiOrigin(): string {
   if (fromEnv) return fromEnv;
 
   if (import.meta.env.DEV) {
-    return "http://localhost:8800";
+    if (typeof window !== "undefined" && window.location?.origin) {
+      return window.location.origin;
+    }
+    return "http://127.0.0.1:8800";
   }
 
   if (typeof window !== "undefined" && window.location?.origin) {
