@@ -56,7 +56,12 @@ export async function fetchDeliveryPage(
     clearTimeout(timer);
 
     if (res.ok) {
-      return res.json() as Promise<DeliveryPage>;
+      const page = (await res.json()) as DeliveryPage;
+      if (!Array.isArray(page.blocks)) {
+        const fb = bundled();
+        if (fb) return fb;
+      }
+      return page;
     }
 
     const fallback = bundled();

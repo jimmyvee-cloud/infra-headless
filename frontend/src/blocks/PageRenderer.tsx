@@ -14,7 +14,8 @@ export function PageRenderer({
   locale: string;
   page: PageMeta;
 }) {
-  const sorted = [...blocks].sort((a, b) => a.order - b.order);
+  const safeBlocks = Array.isArray(blocks) ? blocks : [];
+  const sorted = [...safeBlocks].sort((a, b) => a.order - b.order);
 
   return (
     <>
