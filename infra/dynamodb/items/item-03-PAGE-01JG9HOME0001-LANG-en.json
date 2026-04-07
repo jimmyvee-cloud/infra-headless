@@ -614,7 +614,7 @@
                 "S": "hello@infra-guys.com"
               },
               "secondary_url": {
-                "S": "https://infra-guys.com"
+                "S": "/"
               }
             }
           }

@@ -1,0 +1,20 @@
+# Include from your server {} for https://www.infra-guys.com (or apex).
+# Proxies API paths to uvicorn so the SPA can use same-origin fetch (see frontend src/lib/apiOrigin.ts).
+
+location /health {
+    proxy_pass http://127.0.0.1:8800;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}
+
+location /delivery/ {
+    proxy_pass http://127.0.0.1:8800;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+}

@@ -93,7 +93,7 @@ function blocksForDevServicesPage(): DeliveryBlock[] {
       order: 6,
       props: {
         mailto: "hello@infra-guys.com",
-        home_url: "https://infra-guys.com",
+        home_url: "/",
       },
     },
     {

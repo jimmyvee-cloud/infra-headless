@@ -8,6 +8,9 @@ const hmrClientPort = process.env.VITE_HMR_CLIENT_PORT;
 
 const allowedHosts = ["infra-guys.com", "www.infra-guys.com"];
 
+/** Local dev defaults to loopback only (no LAN broadcast). Docker passes `--host 0.0.0.0` to allow port publish. */
+const devHost = process.env.VITE_DEV_HOST ?? "localhost";
+
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -19,7 +22,7 @@ export default defineConfig({
     },
   },
   server: {
-    host: "0.0.0.0",
+    host: devHost,
     port: 5173,
     allowedHosts,
     watch: { usePolling: true },
@@ -28,6 +31,7 @@ export default defineConfig({
       : {}),
   },
   preview: {
+    host: devHost,
     allowedHosts,
   },
 });

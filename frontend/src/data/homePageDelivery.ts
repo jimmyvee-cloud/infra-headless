@@ -73,7 +73,7 @@ function blocksForHomePage(): DeliveryBlock[] {
       order: 5,
       props: {
         mailto: "hello@infra-guys.com",
-        secondary_url: "https://infra-guys.com",
+        secondary_url: "/",
       },
     },
     {

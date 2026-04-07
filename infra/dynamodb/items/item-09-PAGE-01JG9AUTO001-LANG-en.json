@@ -732,7 +732,7 @@
                 "S": "hello@infra-guys.com"
               },
               "home_url": {
-                "S": "https://infra-guys.com"
+                "S": "/"
               }
             }
           }
